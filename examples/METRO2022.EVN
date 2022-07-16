@@ -1,0 +1,46 @@
+id,METRO1320220131
+info,visteam,A5GWINETT
+info,hometeam,METRO13
+info,site,GWCC
+info,date,2022-01-31
+info,starttime,9:30AM
+info,referee,"Joe Blow"
+setstart,0,0
+start,carpl04,"Abby Carpenter",h,1,S
+start,masob08,"Barbie Mason",h,2,R
+start,coopc15,"Charlotte Cooper",h,3,M
+start,fletd16,"Dina Fletcher",h,4,L
+start,hunte23,"Ellie Hunter",h,5,D
+start,farmf42,"Fiona Farmer",h,6,M
+start,turng99,"Genny Turner",h,7,B
+start,sawyh21,"Helen Sawyer",h,0,D
+start,smiti22,"Irene Smith",h,0,R
+start,a5gwi08,"A5 Gwinett 08",v,1,S
+start,a5gwi06,"A5 Gwinett 06",v,2,R
+start,a5gwi07,"A5 Gwinett 07",v,3,M
+start,a5gwi05,"A5 Gwinett 05",v,4,L
+start,a5gwi03,"A5 Gwinett 03",v,5,D
+start,a5gwi00,"A5 Gwinett 00",v,6,M
+start,a5gwi09,"A5 Gwinett 09",v,7,B
+start,a5gwi10,"A5 Gwinett 10",v,0,D
+start,a5gwi11,"A5 Gwinett 11",v,0,M
+start,a5gwi12,"A5 Gwinett 12",v,0,L
+comment,"Often tracking stats by name for the opposing team isn't needed or worth the effort."
+libsub,turng99,6,farmf42
+play,h,1,,h,1,0
+play,h,1,,h,2,0
+play,h,1,,h,3,0
+play,h,1,,h,4,0
+play,h,1,,h,5,0
+timeout,v
+play,h,1,,v,5,1
+play,v,2,,v,5,1
+play,v,2,,v,5,2
+play,v,2,,v,5,3
+play,v,2,,h,6,3
+sub,smiti22,5,hunte23
+play,h,2,,h,7,2
+play,h,2,,h,8,2
+play,h,2,,h,9,2
+play,h,2,,h,10,2
+
