@@ -31,7 +31,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,hometeam, METRO13
+    info,hometeam,METRO13
   ```
 
   * `visteam`
@@ -39,7 +39,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,visteam, A5GWINETT13
+    info,visteam,A5GWINETT13
   ```
 
   * `site`
@@ -78,7 +78,13 @@ Each line will begin with one of the words in the top level bullets below, follo
 
 * `setstart`
 
+  Marks the start of a set.  Three additional fields note the match score and length for reference.
+
+  Format:
+
+  ```
   homesetswon,vissetswon,matchlength
+  ```
 
   Example:
 
@@ -88,15 +94,29 @@ Each line will begin with one of the words in the top level bullets below, follo
 
 * `starter`
 
-  playercode,playernamestring,playerside(h/v),courtpos,playpos
+  Notes the starting lineup for the set.  Optionally, may list known bench players.
 
-  Court position 0 == on the bench
+  Format:
 
-  Player code:  7 characters, all lowercase.  First 4 letters of last name, first initial, then 2-digit jersey number.
+  ```
+  playercode,playernamestring,playerside,courtpos,playpos
+  ```
 
-  Ex.  Mary Middle, number 99 would be "middm99";  Lisa Libero, number 5 would be "libel05"
+  `playercode`:  7 characters, five lowercase letters and two digits: First four letters of last name, first initial, then two-digit jersey number. For last names shorter than 4 letters, a dashes to pad the characters. For example  Mary Middle, number 99 would be "middm99";  Lisa Libero, number 5 would be "libel05"; Sun Ryu number 1 would be "ryu-s01".
+  
+  `playernamestring`: The player's full name, or last name and first initial, surrounded by double quotes.
 
-  Play pos: S-setter, L-left side or outside hitter, M-middle, R-right-side or opposite hitter, D-defensive specialist, B-libero
+  `playerside`: Either 'h' or 'v', depending if home or visitor.
+
+  `courtpos`: A single digit, 0 thru 7.  0 denotes a player on the bench, 1-6 correspond to position in the rotation, and 7 denotes the libero.
+   
+   `playpos`: A single letter denoting the player's role in the rotation, if known. S-setter, O-left side or outside hitter, M-middle, R-right-side or opposite hitter, D-defensive specialist, L-libero, X-unknown.
+
+  Format:
+
+  ```
+  middm99,"Middle, Mary",h,5,M
+  ```
 
 * `play`
 
