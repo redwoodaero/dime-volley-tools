@@ -19,7 +19,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    id, METRO13-20220201-1
+    id,METRO13-20220201-1
   ```
 
 * `info`
@@ -112,10 +112,10 @@ Each line will begin with one of the words in the top level bullets below, follo
    
    `playpos`: A single letter denoting the player's role in the rotation, if known. S-setter, O-left side or outside hitter, M-middle, R-right-side or opposite hitter, D-defensive specialist, L-libero, X-unknown.
 
-  Format:
+  Example:
 
   ```
-  middm99,"Middle, Mary",h,5,M
+  starter,middm99,"Middle, Mary",h,5,M
   ```
 
 * `play`
