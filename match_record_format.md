@@ -42,6 +42,30 @@ Each line will begin with one of the words in the top level bullets below, follo
     info,visteam,A5GWINETT13
   ```
 
+* `roster`
+
+  Notes the players available for the set.
+
+  Format:
+
+  ```
+  playercode,playernamestring,playerside,playpos
+  ```
+
+  `playercode`:  7 characters, five lowercase letters and two digits: First four letters of last name, first initial, then two-digit jersey number. For last names shorter than 4 letters, a dashes to pad the characters. For example  Mary Middle, number 99 would be "middm99";  Lisa Libero, number 5 would be "libel05"; Sun Ryu number 1 would be "ryu-s01".
+  
+  `playernamestring`: The player's full name, or last name and first initial, surrounded by double quotes.
+
+  `playerside`: Either 'h' or 'v', depending if home or visitor.
+   
+  `playpos`: A single letter denoting the player's role in the rotation, if known. S-setter, O-left side or outside hitter, M-middle, R-right-side or opposite hitter, D-defensive specialist, L-libero, X-unknown.
+
+  Example:
+
+  ```
+  roster,middm99,"Middle, Mary",h,M
+  ```
+
   * `site`
 
   Example:
@@ -89,74 +113,165 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    setstart,1,2,5
+  setstart,1,2,5
   ```
 
 * `starter`
 
-  Notes the starting lineup for the set.  Optionally, may list known bench players.
+  Notes the starting lineup for the set.
 
   Format:
 
   ```
-  playercode,playernamestring,playerside,courtpos,playpos
+  playercode,playerside,courtpos
   ```
 
-  `playercode`:  7 characters, five lowercase letters and two digits: First four letters of last name, first initial, then two-digit jersey number. For last names shorter than 4 letters, a dashes to pad the characters. For example  Mary Middle, number 99 would be "middm99";  Lisa Libero, number 5 would be "libel05"; Sun Ryu number 1 would be "ryu-s01".
+  `playercode`: Same as `playercode` for the `roster` field above. 
   
-  `playernamestring`: The player's full name, or last name and first initial, surrounded by double quotes.
-
   `playerside`: Either 'h' or 'v', depending if home or visitor.
 
   `courtpos`: A single digit, 0 thru 7.  0 denotes a player on the bench, 1-6 correspond to position in the rotation, and 7 denotes the libero.
-   
-   `playpos`: A single letter denoting the player's role in the rotation, if known. S-setter, O-left side or outside hitter, M-middle, R-right-side or opposite hitter, D-defensive specialist, L-libero, X-unknown.
 
   Example:
 
   ```
-  starter,middm99,"Middle, Mary",h,5,M
+  starter,middm99,h,5
   ```
 
 * `play`
 
-  serve(h/v),posserving,touchstring,point(h/v),homescore,visscore
-
   Data recording the outcome of a play.
 
-  Touchstring is a reserved field to eventually record details of the rally, but the author is not yet sophisticated enough to develop play codes as in baseball.
+  Format:
 
-  It seems likely that codes representing something like "high jump serve to location 6, #17 good pass to location 3, #5 low set to 9, #99 hit to 6--kill" that would record every touch, or maybe the last 3 touches before the point, etc.
+  ```
+  serveside,posserving,touchstring,pointside,homescore,visscore
+  ```
+
+  `serveside`: 'h' for home, 'v' for visitor
+
+  `posserving`: 1 thru 6 to denote the rotation.
+
+  `touchstring`:  a field to record details of the rally. The author is not yet sophisticated enough to develop play codes as in baseball.  For now, this field will remain largely blank, but will be filled with an 'A' to denote a service ace.
+
+  It seems likely that eventually this would contain codes representing something like "high jump serve to location 6, #17 good pass to location 3, #5 low set to 9, #99 hit to 6--kill" that would record every touch, or maybe the last 3 touches before the point, etc.
+
+  `pointside`: 'h' if the home team won the point, 'v' if the visitors.
+
+  `homescore`: number from 0 to 25 to denote the score after completion of the play.
+
+  `visscore`: similar to `homescore`.
+
+  Examples:
+
+  Home team serves the first rally of the set and ultimately scores the point.
+
+  ```
+  play,h,1,,h,1,0
+  ```
+
+  Visiting team serves from the 5 rotation and records a service ace, going up 22-17.
+  ```
+  play,v,5,A,v,17,22
+  ```
 
 * `sub`
 
-  playercodein,courtpos,playercodeout
+  Records a normal (non-libero) substitution.
 
-  playercodeout is redundant with pos
+  Format:
+
+  ```
+  playercodeout,courtpos,playercodein
+  ```
+
+  `playercodeout`: Denotes the player leaving the game, formatted the same as `playercode` for the `roster` field above. 
+
+  `courtpos`: Denotes the court position (1-6) being substituted. Note that this is redundant with the player leaving the game, but is included for error-checking purposes and readability.
+  
+  `playercodein`: Denotes the player entering the game, formatted the same as `playercode` for the `roster` field above. 
+
+  Example:
+
+  Starter Mary Middle is replace with bench player Brenda Blocker:
+
+  ```
+  sub,middm99,5,blocb77
+  ```
 
 * `libsub`
 
-  playercodein,pos,playercodeout
+  Records the libero entering or exiting the game.  Note that again, the information is over-specified for error-checking and readability (only the courtpos is necessary on entry, and no data is required on leaving the game.)
+
+  Format:
+
+  ```
+  playercodeout,courtpos,playercodein
+  ```
+
+  Example:
+
+  ```
+  libsub,middm99,5,libel05
+  ```
 
 * `timeout`
 
-  h/v
+  Records when a coach calls timeout.
+
+  Format:
+
+  ```
+  side
+  ```
+
+  Example:
+
+  ```
+  timeout,h
+  ```
 
 * `setend`
 
+  Marks the completion of a set, noting the final set score and the resulting match score.
+
+  Format:
+
+  ```
   homescore,visscore,homesetswon,vissetswon
+  ```
+
+  Example:
+
+  ```
+  setend,25,17,1,0
+  ```
 
 * `matchend`
 
+  Marks the end of a match.  None of the fields are required if the set/play data is correct.  Leave spaces blank if the set was not played.
+
+  Format:
+
+  ```
   homesetswon,vissetswon,set1score,set2score,set3score,set4score,set5score
+  ```
 
-  Leave spaces blank if the set was not played.
+  Example:
 
-  Marks the end of a match in an event file.
+  ```
+  matchend,3,1,25-17,22-25,25-15,25-20,
+  ```
 
 * `comment`
 
   A string with any notes about the game not capturable with standard codes: injuries, challenges, ejections, etc.
+
+  Example:
+
+  ```
+  comment,"Home starting setter left the game with knee injury."
+  ```
 
 * `statecorrection`
 
