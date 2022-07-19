@@ -1,5 +1,10 @@
+import game_state
+
 def record_match_main():
-  pass
+  state = match_state.MatchState()
+  state.enter_match_data()
+  while not state.match_over():
+    state.update()
 
 
 if __name__ == '__main__':

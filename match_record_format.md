@@ -19,7 +19,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    id,METRO13-20220201-1
+  id,METRO13-20220201-1
   ```
 
 * `info`
@@ -31,7 +31,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,hometeam,METRO13
+  info,hometeam,METRO13
   ```
 
   * `visteam`
@@ -39,7 +39,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,visteam,A5GWINETT13
+  info,visteam,A5GWINETT13
   ```
 
 * `roster`
@@ -71,7 +71,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,site,GWCC
+  info,site,GWCC
   ```
 
   * `date`
@@ -81,7 +81,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,date,20220201
+  info,date,20220201
   ```
 
   * `starttime`
@@ -89,7 +89,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,starttime,4:30 PM
+  info,starttime,4:30 PM
   ```
 
   * `referee`
@@ -97,7 +97,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Example:
 
   ```
-    info,referee,"Angel Hernandez"
+  info,referee,"Angel Hernandez"
   ```
 
 * `setstart`
