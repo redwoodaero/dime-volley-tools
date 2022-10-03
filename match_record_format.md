@@ -145,7 +145,7 @@ Each line will begin with one of the words in the top level bullets below, follo
   Format:
 
   ```
-  serveside,posserving,touchstring,pointside,homescore,visscore
+  serveside,posserving,touchstring,keyevents,pointside,homescore,visscore
   ```
 
   `serveside`: 'h' for home, 'v' for visitor
@@ -155,6 +155,10 @@ Each line will begin with one of the words in the top level bullets below, follo
   `touchstring`:  a field to record details of the rally. The author is not yet sophisticated enough to develop play codes as in baseball.  For now, this field will remain largely blank, but will be filled with an 'A' to denote a service ace.
 
   It seems likely that eventually this would contain codes representing something like "high jump serve to location 6, #17 good pass to location 3, #5 low set to 9, #99 hit to 6--kill" that would record every touch, or maybe the last 3 touches before the point, etc.
+
+  `keyevents`: a field to record key data, such as kills, errors, or assists, separated by a colon (:).
+
+     `SO1`: side out on first ball
 
   `pointside`: 'h' if the home team won the point, 'v' if the visitors.
 
@@ -182,8 +186,10 @@ Each line will begin with one of the words in the top level bullets below, follo
   Format:
 
   ```
-  playercodeout,courtpos,playercodein
+  side,playercodeout,courtpos,playercodein
   ```
+
+  `side`: 'h' for home, 'v' for visitor.
 
   `playercodeout`: Denotes the player leaving the game, formatted the same as `playercode` for the `roster` field above. 
 
