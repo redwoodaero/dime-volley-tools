@@ -1,4 +1,4 @@
-# Markov Model for Volleyball Games With Limited Available Data
+# Markov Model To Estimate Expected Points For Volleyball Games With Limited Available Data
 
 Notes for a potential research paper.
 
@@ -57,9 +57,9 @@ Receiving Team Point
 * Servers match up againts receivers
 * Setters and Attackers match up againts blockers and diggers
 
-Serving and receiving states are treated as separate to disambiguate transitions from those states to one of the terminal states.  Will try to constrain the model so the two are mirrors of each other, and try without constraint. With constraint, fewer degrees of freedom in the model, and able to avoid overfitting.
+Serving and receiving states are treated as separate to disambiguate transitions from those states to one of the terminal states.  The model is constrained so that the two are mirrors of each other. This constraint means there are fewer degrees of freedom in the model, and thus makes the model less susceptible to overfitting.
 
-Alternative
+For the purposes of training the model, there are only the following
 
 Serve
 
