@@ -1,4 +1,9 @@
-Every time the ball crosses the net or is hit toward the net with intent to cross it counts as a non-terminal "state".  That state is an assessment of how the ball crossed the net.
+# Markov Model To Estimate Expected Points For Volleyball Games With Limited Available Data
+
+(A different try . . .)
+
+Every time the ball crosses the net or is hit toward the net with intent to cross it counts as a
+non-terminal "state".  That state is an assessment of how the ball crossed the net.
 
 Serve (s)
 Deliberate attack (d)
@@ -25,20 +30,25 @@ error, etc.
 | e | 0.0  |0.0   | 0.0  | 0.0  | 0.0  | 0.0  |0.0   |1.0   | 0.0  |
 | p | 0.0  |0.0   | 0.0  | 0.0  | 0.0  | 0.0  |0.0   |0.0   | 1.0  |
 
-Some of these names are chosen to disassociate from existing volleyball terminology. For example, a deliberate
-attack may mostly align with an in-system attack; but here we are choosing to limit it to in-system attacks where
-the setter can play the ball near front-center court and choose from 3-5 possible attacks.  Improvised attacks may
-be technically in-system, but the setter being out of position and thus limited in attacking choices will tend to make
-the nature of the resulting attack fundamentally different from the former.
+Some of these names are chosen to disassociate from existing volleyball terminology. For example, a
+deliberate attack may mostly align with an in-system attack; but here we are choosing to limit it to
+in-system attacks where the setter can play the ball near front-center court and choose from 3-5
+possible attacks.  Improvised attacks may be technically in-system, but the setter being out of
+position and thus limited in attacking choices will tend to make the nature of the resulting attack
+fundamentally different from the former.
 
 Overpass and freeball retain their normal meaning.
 
-Blocks in this nomenclature are more like "block attempts" rather than "block kills".  Additionally, only block attempts which result in the ball returning over the net count for this definition.  Block attempts where the ball remains on the blockers' side are either an away-side point (for example block error and kill for the attacker, or another ball handling error before the ball can be returned) or are played through and sent back.
+Blocks in this nomenclature are more like "block attempts" rather than "block kills".  Additionally,
+only block attempts which result in the ball returning over the net count for this definition.  Block
+attempts where the ball remains on the blockers' side are either an away-side point (for example block
+error and kill for the attacker, or another ball handling error before the ball can be returned) or are played through and sent back.
 
-First-ball hits happen most commonly after an overpass or a block.  These happen when a player makes an attack without any preceding dig or set.  Though they are usually "improvised" in the literal sense, they are far more likely to score a point than an improvised attack as described above.
+First-ball hits happen most commonly after an overpass or a block.  These happen when a player makes
+an attack without any preceding dig or set.  Though they are usually "improvised" in the literal
+sense, they are far more likely to score a point than an improvised attack as described above.
 
-The on-side point and away side points are deliberately vague (not "attacker point" or "defender point" or "serving team point" or "receiving team point").  This is to be able to tell the result of an event without having the full context of the point.  For example "overpass-first ball hit-away side point" would mean the player making the first ball hit scored a point for her team.  The complement to that sequence, "overpass-first ball hit-on side point" means the power making the first touch attack hit the ball out of bounds or had a net fault.
+After developing the model, you can identify the players involved between the states and distribute
+credit for gain or loss of expected points evenly.
 
-After developing the model, you can identify the players involved between the states and distribute credit for gain or loss of expected points evenly.
-
-These
+These transistion probabilities cannot be directly used as a Markov transition matrix because they
