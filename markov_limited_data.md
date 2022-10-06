@@ -8,7 +8,7 @@ High school volleyball presents a challenge for modeling:
 
 *  Touch-by-touch data does not exist in any significant quantity (in contrast to NCAA, pro, and Olympic levels).
 * In fact, any data at all tends to be scarce because of the limited amount of video available to any one coach or scout, and the fact that all data collection is done by volunteers or school teachers for whom coaching is an additional duty.
-* There is so much variation in team quality that many matchups are quite lopsided and difficult to extract real insights from.
+* There is so much variation in team quality that many matchups are quite lopsided, meaning that, for example, an attempted block might be far more effective than against a more evenly-matched team.
 
 This paper presents a simplified Markov model for volleyball rallies which can be fed with a comparatively small amount of rally data to identify the transition matrix.
 
