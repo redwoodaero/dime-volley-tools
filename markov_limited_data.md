@@ -95,11 +95,6 @@ S-IS-OS-IS-IS-B-RP (Block kill)
 
 ## Applications
 
-Service aggressiveness
-* I've heard the rule of thumb that optimal service error rate is 10%.  Any more is giving up too many points, any less and the serves are too easy to play.
-* There are two questions that are interesting here:
-  * Are service error rate and (non-error) service outcomes correlated? In other words, is there a quantity that can be measured as "serve aggressiveness"?
-  * If so, what is the optimal (i.e. resulting in the most points) service error rate?
 
 Player performance evaluation
 * Own players -- who should start, when to sub
