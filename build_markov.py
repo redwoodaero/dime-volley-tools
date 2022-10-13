@@ -17,19 +17,19 @@ def main():
     sddfde
     sifdbp
   """
-  
-action_result_pairs = []
-for line in game_record.split('\n'):
-  action_list = [*line.strip()]
 
-for lines in f:
-   ...:     g = lines.strip()
-   ...:     for i in range(len(g)-1):
-   ...:         action_result_pairs.append([g[i], g[i+1]])
+  action_result_pairs = []
+  for line in game_record.split('\n'):
+    ...:     g = line.strip()
+    ...:     for i in range(len(g)-1):
+    ...:         action_result_pairs.append([g[i], g[i+1]])
 
-df = pd.DataFrame(action_result_pairs,
-                  columns=("Action", "Resulting_Action"))
-df.pivot_table(columns=["Action", "Resulting_Action"], aggfunc='size')
+  df = pd.DataFrame(action_result_pairs,
+                    columns=("Action", "Resulting_Action"))
+  df.pivot_table(
+    columns=["Action", "Resulting_Action"], aggfunc='size')
+
+
 
 if __name__ == "__main__":
   main()
