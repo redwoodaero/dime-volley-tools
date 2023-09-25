@@ -76,6 +76,11 @@ might be.
 * There are two questions that are interesting here:
   * Are service error rate and (non-error) service outcomes correlated? In other words, is there a quantity that can be measured as "serve aggressiveness"?
   * If so, what is the optimal (i.e. resulting in the most points) service error rate?
+* Can serve aggressiveness by quantified?
+  * Height above net (think of this as a normal distribution, what aim point do you want to get N% of the served balls over the net)
+  * Time to reach net (how hard hit, how close to the net contacted)
+  * Float/topspin
+  * Height of contact
 
 ## Physics of the serve
 
@@ -87,3 +92,13 @@ the ball in serve?
 
 ELO based on set outcomes
 ELO attributed to a particular rotation, based on rally outcomes.
+
+## Trinsey triangle and how our girls measure up
+
+## Open source version of datavolley
+
+## Hypotheses of the most fertile ground for creating more points
+
+1. Improving out-of-system/semi-system attacks / avoid freeballs (i.e. take a swing instead of just rolling it over the net) 
+1. Improving freeball quality (i.e. aim for the donut or the court corners)
+1. Reducing service errors even if it reduces aces.
