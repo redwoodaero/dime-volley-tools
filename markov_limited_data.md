@@ -1,5 +1,3 @@
-# Markov Model To Estimate Expected Points For Volleyball Games With Limited Available Data
-
 Notes for a potential research paper.
 
 Markov models have been used many times to model the scoring probabilities of various situations in volleyball.
